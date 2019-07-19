@@ -18,8 +18,8 @@ $ composer install
 ## Solução Proposta
 Solução para efetuar a migração dos dados dos arquivos XML, para sistema onde o usuário pode gerenciar os dados
 dos torcedores da AllBlack, podendo:
- - visualizar
- - dicionar 
- - editar
- - excluir
- - exportar para para arquivo xls. 
+ - Visualizar
+ - Adicionar 
+ - Editar
+ - Excluir
+ - Exportar para para arquivo xls. 
