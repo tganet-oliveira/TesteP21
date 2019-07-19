@@ -1,0 +1,69 @@
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+<div class="page-header"><h5><?= $this->title?></h5></div>
+<?= $this->form()->openTag($form); ?>
+<div class="x_panel x_content">
+    <div class="row">
+        <div class="col-md-4 col-md-4 col-sm-4">
+            <?= $this->formLabel($form->get('torcedor')); ?>
+            <?= $this->formElement($form->get('torcedor')); ?>
+            <?= $this->formElementErrors($form->get('torcedor')); ?>
+        </div>
+        <div class="col-md-4 col-md-4 col-sm-4">
+            <?= $this->formLabel($form->get('cpf')); ?>
+            <?= $this->formElement($form->get('cpf')); ?>
+            <?= $this->formElementErrors($form->get('cpf')); ?>
+        </div>
+        <div class="col-md-4 col-md-4 col-sm-4">
+            <?= $this->formLabel($form->get('cep')); ?>
+            <?= $this->formElement($form->get('cep')); ?>
+            <?= $this->formElementErrors($form->get('cep')); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-4 col-sm-4">
+            <?= $this->formLabel($form->get('endereco')); ?>
+            <?= $this->formElement($form->get('endereco')); ?>
+            <?= $this->formElementErrors($form->get('endereco')); ?>
+        </div>
+        <div class="col-md-4 col-md-4 col-sm-4">
+            <?= $this->formLabel($form->get('cidade')); ?>
+            <?= $this->formElement($form->get('cidade')); ?>
+            <?= $this->formElementErrors($form->get('cidade')); ?>
+        </div>
+        <div class="col-md-4 col-md-4 col-sm-4">
+            <?= $this->formLabel($form->get('uf')); ?>
+            <?= $this->formElement($form->get('uf')); ?>
+            <?= $this->formElementErrors($form->get('uf')); ?>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-md-4 col-sm-4">
+            <?= $this->formLabel($form->get('telefone')); ?>
+            <?= $this->formElement($form->get('telefone')); ?>
+            <?= $this->formElementErrors($form->get('telefone')); ?>
+        </div>
+        <div class="col-md-4 col-md-4 col-sm-4">
+            <?= $this->formLabel($form->get('email')); ?>
+            <?= $this->formElement($form->get('email')); ?>
+            <?= $this->formElementErrors($form->get('email')); ?>
+        </div>
+        <div class="col-md-4 col-md-4 col-sm-4">
+            <?= $this->formLabel($form->get('ativo')); ?>
+            <?= $this->formElement($form->get('ativo')); ?>
+            <?= $this->formElementErrors($form->get('ativo')); ?>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="ln_solid"></div>
+        <div class="row-fluid text-right">
+            <?= $this->formElement($form->get('id')); ?>
+            <?= $this->formElement($form->get('submit')); ?>
+        </div>
+    </div>
+</div>
+
+<?= $this->form()->closeTag(); ?>

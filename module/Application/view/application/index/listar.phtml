@@ -1,0 +1,70 @@
+<div class="page-header"><h5>Listar</h5></div>
+<div class="row"></div>
+<div class="row">
+    <div class="row-fluid text-right">
+        <a href="<?=$this->url('excel')?>"><button class="btn btn-success"><i class="fa fa-file-excel-o"></i> Excel</button></a>
+        <a href="<?= $this->url('torcedor'); ?>"><input type="button" class="btn btn-primary" value="Adicionar Torcedor"></a>
+    </div>
+</div>
+<br>
+<table id="datatable" class="table table-striped table-bordered dataTable no-footer" role="grid" aria-describedby="datatable_info">
+    <thead>
+    <tr role="row">
+        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"  style="width: 157px;">Nome</th>
+        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"  style="width: 259px;">Cpf</th>
+        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1"  style="width: 117px;">Cep</th>
+        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >Endereço</th>
+        <th class="sorting" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >Bairro</th>
+        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >Cidade</th>
+        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >UF</th>
+        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >Telefone</th>
+        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >E-mail</th>
+        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >Ativo</th>
+        <th class="sorting_asc" tabindex="0" aria-controls="datatable" rowspan="1" colspan="1" >Ações</th>
+    </tr>
+    </thead>
+    <?php foreach ($this->res as $rs):?>
+        <tr>
+            <td><?php echo $rs->getNome()?></td>
+            <td><?php echo $rs->getCpf()?></td>
+            <td><?php echo $rs->getCep()?></td>
+            <td><?php echo $rs->getEndereco()?></td>
+            <td><?php echo $rs->getBairro()?></td>
+            <td><?php echo $rs->getCidade()?></td>
+            <td><?php echo $rs->getUf()?></td>
+            <td><?php echo $rs->getTelefone()?></td>
+            <td><?php echo $rs->getEmail()?></td>
+            <td><?php echo $rs->getAtivo()?></td>
+            <td>
+                <a href="<?php echo $this->url('torcedor', array('action' => 'torcedor', 'id'=>$rs->getId()))?>"><i class="fa fa-pencil"></i></a>
+                <a href="#" class="btn-excluir" data-toggle="modal" data-target="#myModalExcluir" data-id="<?php echo $rs->getId()?>"><i class="fa fa-trash-o"></i></a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    <tbody>
+
+    </tbody>
+</table>
+<!-- Modal -->
+<div class="modal fade" id="myModalExcluir" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <form method="post" class="excluir" action="<?php echo $this->url('excluir')?>">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Excluir Torcedor</h4>
+                </div>
+                <div class="modal-body">
+                    Deseja excluir esse registro?
+                    <input type="hidden" name="id" id="id-excluir" value="">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Não</button>
+                    <input type="submit" class="btn btn-primary excluir" value="Sim">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

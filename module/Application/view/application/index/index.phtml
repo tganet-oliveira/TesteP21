@@ -1,0 +1,17 @@
+<?php
+$form = $this->form;
+$form->prepare();
+?>
+
+<?= $this->form()->openTag($form); ?>
+<div class="x_panel x_content col-md-12 col-md-12 col-sm-12">
+    <div class="col-md-12 col-md-12 col-sm-12  x_content">
+        <?= $this->formLabel($form->get('file')); ?>
+        <?= $this->formElement($form->get('file')); ?>
+        <?= $this->formElementErrors($form->get('file')); ?>
+    </div>
+    <div class="row-fluid text-right">
+        <?= $this->formElement($form->get('submit')); ?>
+    </div>
+</div>
+<?= $this->form()->closeTag(); ?>

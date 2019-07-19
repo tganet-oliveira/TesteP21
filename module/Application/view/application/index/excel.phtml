@@ -1,0 +1,50 @@
+<?php
+//var_dump(count($this->res));die;
+
+$i = count($this->res);
+/*
+* Criando e exportando planilhas do Excel
+* /
+*/
+// Definimos o nome do arquivo que será exportado
+$file = 'listaTorcedores.xls';
+// Criamos uma tabela HTML com o formato da planilha
+$html = '';
+$html .= '<table border="1">';
+$html .= '<tr>';
+$html .= '<td>Nome</td>';
+$html .= '<td>CPF</td>';
+$html .= '<td>CEP</td>';
+$html .= '<td>Endere&ccedil;o</td>';
+$html .= '<td>Bairro</td>';
+$html .= '<td>Cidade</td>';
+$html .= '<td>UF</td>';
+$html .= '<td>Telefone</td>';
+$html .= '<td>E-mail</td>';
+$html .= '</tr>';
+
+foreach ($this->res as $key => $rs){
+    if($key <= count($this->res)) {
+        $html .= '<tr>';
+        $html .= '<td>' . $rs->getNome() . '</td>';
+        $html .= '<td>' . $rs->getCpf() . '</td>';
+        $html .= '<td>' . $rs->getCep() . '</td>';
+        $html .= '<td>' . $rs->getEndereco() . '</td>';
+        $html .= '<td>' . $rs->getBairro() . '</td>';
+        $html .= '<td>' . $rs->getCidade() . '</td>';
+        $html .= '<td>' . $rs->getUf() . '</td>';
+        $html .= '<td>' . $rs->getTelefone() . '</td>';
+        $html .= '<td>' . $rs->getEmail() . '</td>';
+        $html .= '</tr>';
+    }
+}
+$html .= '</table>';
+header ("Expires: Mon, 26 Jul 1997 05:00:00 GMT");
+header ("Last-Modified: " . gmdate("D,d M YH:i:s") . " GMT");
+header ("Cache-Control: no-cache, must-revalidate");
+header ("Pragma: no-cache");
+header ("Content-type: application/x-msexcel");
+header ("Content-Disposition: attachment; filename=\"{$file}\"" );
+header ("Content-Description: PHP Generated Data" );
+echo $html;
+exit;
